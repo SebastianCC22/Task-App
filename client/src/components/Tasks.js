@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, Card, CardContent, Typography } from "@mui/material";
+import { Button, Card, CardContent, Typography, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function Tasks() {
@@ -34,6 +34,8 @@ export default function Tasks() {
           style={{
             marginBottom: "1rem",
             backgroundColor: "#0e222a",
+            borderRadius: "25px",
+            boxShadow: "5px 5px 5px black",
           }}
           key={task.id}
         >
@@ -48,21 +50,33 @@ export default function Tasks() {
               <Typography>{task.description}</Typography>
             </div>
             <div>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => navigate(`/tasks/${task.id}/edit`)}
-              >
-                Editar
-              </Button>
-              <Button
-                variant="contained"
-                color="error"
-                style={{ marginLeft: ".5rem" }}
-                onClick={() => handleDelete(task.id)}
-              >
-                Eliminar
-              </Button>
+              <Grid container>
+                <Grid item xs={6} sm={12}>
+                  <Button
+                    border={1}
+                    variant="contained"
+                    color="primary"
+                    style={{
+                      marginLeft: ".7rem",
+                    }}
+                    onClick={() => navigate(`/tasks/${task.id}/edit`)}
+                  >
+                    Editar
+                  </Button>
+                  <Button
+                    border={1}
+                    variant="contained"
+                    color="error"
+                    style={{
+                      marginLeft: ".2rem",
+                      marginTop: "3px"
+                    }}
+                    onClick={() => handleDelete(task.id)}
+                  >
+                    Eliminar
+                  </Button>
+                </Grid>
+              </Grid>
             </div>
           </CardContent>
         </Card>
