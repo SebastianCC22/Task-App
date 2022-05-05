@@ -38,7 +38,7 @@ const createTask = async (req, res, next) => {
       "INSERT INTO task (title, description) VALUES ($1, $2) RETURNING *",
       [title, description]
     );
-
+    
     res.json(result.rows[0]);
   } catch (error) {
     next(error);
