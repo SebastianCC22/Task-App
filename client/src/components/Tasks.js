@@ -50,7 +50,9 @@ export default function Tasks() {
               <Typography>{task.description}</Typography>
             </div>
             <div>
-              <Grid container>
+              <Grid container style={{
+                width: "300%",
+              }}>
                 <Grid item xs={6} sm={12}>
                   <Button
                     border={1}
